@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 300;
+    box-sizing: border-box;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
+}
+
+/* Chat App Container */
+.chat-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background-color: #121212;
+}
+
+/* Chat Content */
+.chat-content {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Default Message */
+.default-message {
+    font-size: 25px;
+    color: #aaaaaa;
+    text-align: center;
+    margin: auto;
+}
+
+/* Messages */
+.message {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    max-width: 70%;
+    font-size: 16px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    font-family: 'Montserrat',sans-serif;
+}
+
+/* User Message */
+.message.user-message {
+    background-color: #4caf50;
+    color: #ffffff;
+    align-self: flex-end;
+    text-align: right;
+}
+
+/* Chatbot Response */
+.message.chatbot-message {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    align-self: flex-start;
+    text-align: left;
+    min-width: 20%;
+}
+
+/* Custom Scrollbar */
+.chat-content::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+.chat-content::-webkit-scrollbar-track {
+    background-color: #2a2a2a; /* Track color */
+    border-radius: 10px;
+}
+
+.chat-content::-webkit-scrollbar-thumb {
+    background-color: #4caf50; /* Scroll thumb color */
+    border-radius: 10px;
+    border: 2px solid #1e1e1e; /* Add a border around the thumb */
+}
+
+.chat-content::-webkit-scrollbar-thumb:hover {
+    background-color: #45a049; /* Darker thumb color when hovering */
+}
+
+/* Chat Input Area */
+.chat-input-container {
+    background-color: #1e1e1e00;
+    padding: 10px 0;
+    border: none;
+}
+
+/* Wrapper for input field and buttons */
+.chat-input-wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 20px;
+    padding: 5px;
+    gap: 5px;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.604);
+    box-sizing: border-box;
+}
+
+/* Textarea for input */
+#chat-input {
+    flex: 1;
+    border: none;
+    border-radius: 20px;
+    resize: none;
+    padding: 10px;
+    outline: none;
+    font-size: 16px;
+    background-color: #1e1e1e00;
+    color: #e0e0e0;
+    max-height: 100px;
+    overflow-y: auto;
+    font-family: 'Montserrat',sans-serif;
+}
+
+/* Buttons */
+.chat-buttons button {
+    border: none;
+    background-color: #0000009c;
+    color: white;
+    padding: 10px 12px;
+    font-size: 14px;
+    border-radius: 17px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.chat-buttons button#button-reset {
+    background-color: #0000009c;
+    margin-left: 3px;
+}
+
+.chat-buttons button:hover {
+    background-color: #3e8e41;
+}
+
+.chat-buttons button#button-reset:hover {
+    background-color: #d32f2f;
+}
+
+/* Disclaimer */
+.chat-disclaimer {
+    text-align: center;
+    font-size: 12px;
+    color: #aaaaaa;
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .chat-input-wrapper {
+        width: calc(100% - 20px);
+        margin: 0 10px;
+    }
+
+    /* For small screens, user and chatbot messages can align with the full width */
+    .message {
+        max-width: 100%; /* Take full width on mobile */
+        margin: 5px 10px; /* Add margin for spacing */
+    }
+}
+
+/* Full-Screen View (larger screens) */
+@media (min-width: 601px) {
+    .chat-input-wrapper {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    /* Move messages a little away from the borders */
+    .message {
+        max-width: 70%;
+        margin-left: 15px; /* Space from left */
+        margin-right: 15px; /* Space from right */
+    }
+
+    /* For chatbot messages */
+    .message.chatbot-message {
+        margin-left: 20px; /* Increase space on the left side */
+    }
+
+    /* For user messages */
+    .message.user-message {
+        margin-right: 20px; /* Increase space on the right side */
+    }
+}
+
+[hidden] {
+    display: none;
+}
+
+.blink {
+    animation: 1s ease-in-out 1s infinite reverse both running blink;
+    font-size: 32px;
+}
+  
+@keyframes blink {
+    25% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0;
+    }
+    75% {
+      opacity: 0.5;
+    }
+}  
